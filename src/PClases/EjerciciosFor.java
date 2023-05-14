@@ -99,4 +99,31 @@ public class EjerciciosFor {
         }
         System.out.println("El Promedio Es " + (Promedio / NumCarros));
     }
+    
+     public void Modulo5Ejercicio1(){
+     //1) En un supermercado se hace una promoción, mediante la cual el cliente obtiene un descuento dependiendo de un número 
+        //que se escoge al azar. Si el numero escogido es menor que 74 el descuento es del 15% sobre el total de la compra, 
+        //si es mayor o igual a 74 el descuento es del 20%. Obtener cuánto dinero se le descuenta.
+        Scanner entrada = new Scanner (System.in);
+        System.out.println("Digite el total de la compra: ");
+        double totalCompra;
+        totalCompra = entrada.nextDouble( );
+        
+        System.out.println("Elija un numero del 1 al 100");
+        int num;
+        num = entrada.nextInt( );
+        
+        double descuento;
+        
+        if(num<74) {
+            System.out.println("Su descuento es del 15% ");
+            descuento = totalCompra - (totalCompra * 0.15);
+            System.out.println("El total de su compra con descuento es de: " + descuento);
+        } else {
+            System.out.println("Su descuento es del 20%");
+            descuento = totalCompra - (totalCompra * 0.20);
+            System.out.println("El total de su compra con descuento es de: " + descuento);
+        }
+}      
+
 }
