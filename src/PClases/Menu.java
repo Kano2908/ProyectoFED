@@ -1,12 +1,14 @@
 //Autor Equipo 6
 package PClases;
+
 import java.util.Scanner;
 
 public class Menu {
+
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         int opcion;
-        
+
         //Creacion de los objetos de cada clase
         EjerciciosWhile eWhile = new EjerciciosWhile();
         EjerciciosDoWhile eDoWhile = new EjerciciosDoWhile();
@@ -16,7 +18,7 @@ public class Menu {
         Modulo7 eModulo7 = new Modulo7();
         EjerciciosArreglos eArreglos = new EjerciciosArreglos();
         Recursividad eRecursividad = new Recursividad();
-        
+
         do {
             System.out.println("------------------------ MENU ------------------------");
             System.out.println("Lista De Programas: Estrucura De Datos");
@@ -46,6 +48,8 @@ public class Menu {
             System.out.println("24. Modulo 7 Ejercicio 4 Pag 22 - 29");
             System.out.println("25. Ejercicio Arreglo Con Metodos");
             System.out.println("25. Ejercicio Caso De Recursividad");
+            System.out.println("26. Ejercicio Busqueda secuencial");
+            System.out.println("27. Ejercicio Busqueda binaria");
             System.out.println("Ingrese El Numero Para Escoger El Programa: ");
             opcion = entrada.nextInt();
 
@@ -200,7 +204,7 @@ public class Menu {
                 case 22 -> {
                     do {
                         int sum = eModulo7.returnSum();
-                        System.out.println("The value returned is "+ sum);
+                        System.out.println("The value returned is " + sum);
                         System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
                         opcion = entrada.nextInt();
                     } while (opcion == 0);
@@ -234,21 +238,35 @@ public class Menu {
                         System.out.println("Digite el valor del exponente: ");
                         int exp = entrada.nextInt();
                         eRecursividad.Calcular(base, exp);
-                        System.out.println(base+" elevado a "+exp+" = "+ eRecursividad.Calcular(base, exp));
+                        System.out.println(base + " elevado a " + exp + " = " + eRecursividad.Calcular(base, exp));
                         System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
                         opcion = entrada.nextInt();
                     } while (opcion == 0);
                 }
                 case 27 -> {
                     do {
+                        int vect[] = new int[50];
+                        System.out.println("Digite el parametro del arreglo: ");
+                        int n = entrada.nextInt();
+                        System.out.println("Digite el numero que desea buscar: ");
+                        int x = entrada.nextInt();
+                        Busqueda_secuencial objeto = new Busqueda_secuencial();
+                        objeto.Busqueda(x, vect, n);
+                        System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
+                        opcion = entrada.nextInt();
+                    } while (opcion == 0);
+                }
+            
+                case 28 -> {
+                    do {
                         
                         System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
                         opcion = entrada.nextInt();
                     } while (opcion == 0);
                 }
-                case 28 -> {
+                case 30 -> {
                     do {
-                        
+
                         System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
                         opcion = entrada.nextInt();
                     } while (opcion == 0);
