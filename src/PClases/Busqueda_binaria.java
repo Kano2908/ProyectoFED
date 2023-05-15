@@ -4,8 +4,7 @@
  */
 package PClases;
 
-public class Busqueda_binaria {
-
+public class BusquedaBinaria {
     public static int Buscar(int x, int vect[]) {
         int izquierda, derecha, cen;
         izquierda = 0;
@@ -23,5 +22,4 @@ public class Busqueda_binaria {
         }
         return -1;
     }
-
 }
