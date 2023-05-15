@@ -18,6 +18,9 @@ public class Menu {
         Modulo7 eModulo7 = new Modulo7();
         EjerciciosArreglos eArreglos = new EjerciciosArreglos();
         Recursividad eRecursividad = new Recursividad();
+        BusquedaSecuencial eBSecuencial = new BusquedaSecuencial();
+        BusquedaBinaria eBBinaria = new BusquedaBinaria();
+        MetodosOrdenamiento eMOrdenamiento = new MetodosOrdenamiento();
 
         do {
             System.out.println("------------------------ MENU ------------------------");
@@ -47,9 +50,12 @@ public class Menu {
             System.out.println("23. Modulo 7 Ejercicio 3 Pag 22 - 29");
             System.out.println("24. Modulo 7 Ejercicio 4 Pag 22 - 29");
             System.out.println("25. Ejercicio Arreglo Con Metodos");
-            System.out.println("25. Ejercicio Caso De Recursividad");
-            System.out.println("26. Ejercicio Busqueda secuencial");
-            System.out.println("27. Ejercicio Busqueda binaria");
+            System.out.println("26. Ejercicio Caso De Recursividad");
+            System.out.println("27. Ejercicio Busqueda Secuencial");
+            System.out.println("28. Ejercicio Busqueda Binaria");
+            System.out.println("29. Ejercicio Algoritmo Burbuja");
+            System.out.println("30. Ejercicio Algoritmo Insercion");
+            System.out.println("31. Ejercicio Esposicion Algoritmo Mezcla Directa");
             System.out.println("Ingrese El Numero Para Escoger El Programa: ");
             opcion = entrada.nextInt();
 
@@ -245,13 +251,7 @@ public class Menu {
                 }
                 case 27 -> {
                     do {
-                        int vect[] = new int[50];
-                        System.out.println("Digite el parametro del arreglo: ");
-                        int n = entrada.nextInt();
-                        System.out.println("Digite el numero que desea buscar: ");
-                        int x = entrada.nextInt();
-                        Busqueda_secuencial objeto = new Busqueda_secuencial();
-                        objeto.Busqueda(x, vect, n);
+                        eBSecuencial.MetodoS();
                         System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
                         opcion = entrada.nextInt();
                     } while (opcion == 0);
@@ -259,14 +259,79 @@ public class Menu {
             
                 case 28 -> {
                     do {
-                        
+                        int[] edades = new int[35];
+                        for (int i = 0; i < edades.length; i++) {
+                            edades[i] = i * i;
+                        }
+
+                        for (int i = 0; i < edades.length; i++) {
+                            System.out.println("edades[" + i + "]: " + edades[i]);
+                        }
+
+                        int resultado = BusquedaBinaria.buscar(edades, 9);
+
+                        if (resultado != -1) {
+                            System.out.println("Encontrado en: " + resultado);
+                        } else {
+                            System.out.println("El dato no se encuentra en el arreglo, o el arreglo no esta ordenado.");
+                        }
+                        System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
+                        opcion = entrada.nextInt();
+                    } while (opcion == 0);
+                }
+                case 29 -> {
+                    do {
+                        eMOrdenamiento.aBurbuja();
                         System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
                         opcion = entrada.nextInt();
                     } while (opcion == 0);
                 }
                 case 30 -> {
                     do {
+                        System.out.println("Introduce los numeros: ");
+                        int[] array = new int[6];
 
+                        eMOrdenamiento.ArrayInsercion(array);
+
+                        eMOrdenamiento.MetodoInsercion(0, array, 0);
+                        System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
+                        opcion = entrada.nextInt();
+                    } while (opcion == 0);
+                }
+                case 31 -> {
+                    do {
+                        int array[], arrayOrdenado[], arrayDesordenado[], tamañoA;
+                        System.out.println("Ingresa el tamaño de tu arreglo: ");
+                        tamañoA = entrada.nextInt();
+                        array = new int[tamañoA];
+
+                        arrayDesordenado = eMOrdenamiento.arregloIngre(array, tamañoA);
+
+                        arrayOrdenado = eMOrdenamiento.MezclaDP(arrayDesordenado);
+
+                        System.out.println("Array Ordenado: ");
+                        eMOrdenamiento.MostrarArreglo(arrayOrdenado);
+                        System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
+                        opcion = entrada.nextInt();
+                    } while (opcion == 0);
+                }
+                case 32 -> {
+                    do {
+                        
+                        System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
+                        opcion = entrada.nextInt();
+                    } while (opcion == 0);
+                }
+                case 33 -> {
+                    do {
+                        
+                        System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
+                        opcion = entrada.nextInt();
+                    } while (opcion == 0);
+                }
+                case 34 -> {
+                    do {
+                        
                         System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
                         opcion = entrada.nextInt();
                     } while (opcion == 0);
@@ -275,7 +340,7 @@ public class Menu {
                     System.out.println("Error Seleccione Un Numero Valido");
                 }
             }
-        } while (opcion != 13);
+        } while (opcion != 50);
         entrada.close();
     }
 }
