@@ -4,6 +4,10 @@ package PClases;
 import java.util.Scanner;
 
 public class Menu {
+    //Variables locales para programa de Cola
+    private int[] elementos;
+    private int frente;
+    private int fin;
 
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
@@ -55,7 +59,14 @@ public class Menu {
             System.out.println("28. Ejercicio Busqueda Binaria");
             System.out.println("29. Ejercicio Algoritmo Burbuja");
             System.out.println("30. Ejercicio Algoritmo Insercion");
-            System.out.println("31. Ejercicio Esposicion Algoritmo Mezcla Directa");
+            System.out.println("31. Ejercicio Exposicion Algoritmo Mezcla Directa");
+            System.out.println("32. Ejercicio Pila");
+            System.out.println("33. Ejercicio Cola");
+            System.out.println("34. Ejercicio Lista Enlazada Parte 1");
+            System.out.println("35. Ejercicio Lista Enlazada Parte 2");
+            System.out.println("36. Ejercicio Lista Enlazada Parte 3");
+            System.out.println("37. Ejercicio Lista Enlazada Parte 4");
+            System.out.println("38. Salir");
             System.out.println("Ingrese El Numero Para Escoger El Programa: ");
             opcion = entrada.nextInt();
 
@@ -317,6 +328,137 @@ public class Menu {
                 }
                 case 32 -> {
                     do {
+                        Pila inicializar = new Pila();
+                        Pila ingresar = new Pila();
+                        Pila leerYquitarCima = new Pila();
+                        Pila comprobar = new Pila();
+                        Pila imp = new Pila();
+                        Pila cont = new Pila();
+                        Pila devolverCima = new Pila();
+                        Pila borrarCima = new Pila();
+                        Pila popPila = new Pila();
+                        Pila escribirPila = new Pila();
+                        Pila copiar = new Pila();
+                        Pila sum = new Pila();
+                        Pila invertir = new Pila();
+                        Pila estar = new Pila();
+                        Pila desfondar = new Pila();
+
+                        int pila[] = new int[20];
+                        int tam, n, salir = 1; 
+
+                        do {
+                            System.out.println("\t\tMenu         ");
+                            System.out.println("");
+                            System.out.println("1.Inicializar Pila");
+                            System.out.println("2.Apilar");
+                            System.out.println("3.Desapilar");
+                            System.out.println("4.Pila Vacia");
+                            System.out.println("5.Imprimir Pila");
+                            System.out.println("6.Numero de elementos de la Pila");
+                            System.out.println("7.Cima");
+                            System.out.println("8.Decapitar");
+                            System.out.println("9.Eliminar Pila");
+                            System.out.println("10.Escribir Pila");
+                            System.out.println("11.Copiar Pila");
+                            System.out.println("12.Sumergir");
+                            System.out.println("13.Invertir Pila");
+                            System.out.println("14.Esta");
+                            System.out.println("15.Fondo");
+                            System.out.println("16.Salir");
+                            System.out.println("");
+                            System.out.print("Introduce el numero que dese realizar : ");
+                            opcion = entrada.nextInt();
+                            System.out.println("");
+                            switch (opcion) {
+                                case 1 ->{
+                                    pila = inicializar.crear();
+                                    System.out.println("Pila creada satisfactoriamente");
+                                }
+                                case 2 -> {
+                                    System.out.print("Digite el numero a introducir a la pila: ");
+                                    n = entrada.nextInt();
+                                    ingresar.introducir(pila, n);
+                                }
+                                case 3 -> {
+                                    int rescatado = leerYquitarCima.eliminar(pila);
+                                    System.out.println("Elemento rescatado: " + rescatado);
+                                    System.out.println("\nElemento eliminado de la cima");
+                                }
+                                case 4 -> {
+                                    boolean vacia = comprobar.corroborarVacia(pila);
+
+                                    if (vacia) {
+                                        System.out.println("La pila esta vacia");
+                                    } else {
+                                        System.out.println("La pila tiene elementos");
+                                    }
+                                }
+                                case 5 -> {
+                                    System.out.println("Elementos de la pila: ");
+                                    System.out.println("");
+                                    imp.imprimir(pila);
+                                }
+                                case 6 -> {
+                                    int t = cont.contar(pila);
+                                    System.out.println("Total de elementos de la pila: " + t);
+                                }
+                                case 7 -> {
+                                    int cima = devolverCima.devolverCima(pila);
+                                    System.out.println("La cima de la pila: " + cima);
+                                    System.out.println("");
+                                }
+                                case 8 -> {
+                                    borrarCima.eliminarCima(pila);
+                                    System.out.println("Elemento de la cima eliminado");
+                                }
+                                case 9 -> {
+                                    popPila.elimiarPila(pila);
+                                    System.out.println("Pila eliminada");
+                                }
+                                case 10 -> {
+                                    tam = cont.contar(pila);
+
+                                    System.out.println("Elemntos de la pila: ");
+                                    escribirPila.escribir(pila, tam);
+                                    System.out.println("Elementos eliminados");
+                                }
+                                case 11 -> {
+                                    tam = cont.contar(pila);
+                                    int copia[] = new int[tam];
+                                    copia = copiar.copiarPila(pila);
+                                    System.out.println("Pila copiada: ");
+                                    imp.imprimir(copia);
+                                }
+                                case 12 -> {
+                                    System.out.println("");
+                                    System.out.print("Digite el numero a introducir en la pila: ");
+                                    n = entrada.nextInt();
+
+                                    pila = sum.sumergir(pila, n);
+
+                                    System.out.println("Elemento ingresado en la pila");
+                                }
+                                case 13 -> {
+                                    pila = invertir.invertir(pila);
+
+                                    System.out.println("Pila invertida: ");
+                                    System.out.println("");
+
+                                    imp.imprimir(pila);
+                                }
+                                case 14 -> {
+                                    System.out.print("Digite el numero a buscar: ");
+                                    n = entrada.nextInt();
+                                    estar.estar(pila, n);
+                                }
+                                case 15 -> {
+                                    n = desfondar.desfondar(pila);
+                                    System.out.println("El numero del fondo de la pila es: " + n);
+                                }
+                            }
+                            System.out.println("");
+                        } while (opcion != 16);
                         
                         System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
                         opcion = entrada.nextInt();
@@ -324,23 +466,245 @@ public class Menu {
                 }
                 case 33 -> {
                     do {
+                        Menu cola = new Menu();
+                        Cola inicializar = new Cola();
+                        Cola ingresar = new Cola();
+                        Cola cont = new Cola();
+                        Cola leerYquitar = new Cola();
+                        Cola comprobar = new Cola();
+                        Cola imp = new Cola();
+                        Cola leer = new Cola();
+                        Cola Eliminar = new Cola();
+                        Cola Quitar = new Cola();
                         
+                        int salir = 1;
+                        int colaArray[] = new int[20];
+                        int tam, n, tamanio;
+
+                        do {
+                            System.out.println(" ------ Menu ------ ");
+                            System.out.println("1. Inicializar Cola");
+                            System.out.println("2. Encolar");
+                            System.out.println("3. Desencolar");
+                            System.out.println("4. Cola Vacia");
+                            System.out.println("5. Numero de elementos de la Cola");
+                            System.out.println("6. Imprimir Pila");
+                            System.out.println("7. Leer cola ");
+                            System.out.println("8. Eliminar Cola");
+                            System.out.println("9. Quitar Primero");
+                            System.out.println("10. Salir");
+                            System.out.print("Introduce el numero que desee realizar : ");
+                            opcion = entrada.nextInt();
+                            System.out.println("");
+                            switch (opcion) {
+                                case 1-> {
+                                    int[] pila = inicializar.crear();
+                                    System.out.println("Cola creada satisfactoriamente");
+                                }
+                                case 2 -> {
+                                    System.out.print("Digite el numero a introducir a la cola: ");
+                                    n = entrada.nextInt();
+                                    ingresar.introducir(colaArray, n);
+                                }
+                                case 3 -> {
+                                    int rescatado = leerYquitar.eliminar(colaArray);
+                                    System.out.println("Elemento rescatado: " + rescatado);
+                                    System.out.println("\nElemento eliminado de la cima");
+                                }
+                                case 4 -> {
+                                    boolean vacia = comprobar.corroborarVacia(colaArray);
+
+                                    if (vacia) {
+                                        System.out.println("La cola esta vacia");
+                                    } else {
+                                        System.out.println("La cola tiene elementos");
+                                    }
+                                }
+                                case 5 -> {
+                                    int t = cont.contar(colaArray);
+                                    System.out.println("Total de elementos de la Cola: " + t);
+                                }
+                                case 6 -> {
+                                    System.out.println("Elementos de la cola: ");
+                                    System.out.println("");
+                                    imp.imprimir(colaArray);
+                                }
+                                case 7 -> {
+                                    System.out.println("Leyendo la cola");
+                                    leer.leerCola(cola);
+                                }
+                                case 8 -> {
+                                    Eliminar.eliminarCola(colaArray);
+                                    System.out.println("La cola ha sido eliminada");
+                                }
+                                case 9 -> {
+                                    int rescatadoPrimero = Quitar.quitar(colaArray);
+                                    System.out.println("Elemento rescatado: " + rescatadoPrimero);
+                                    System.out.println("\nPrimer elemento eliminado de la cola");
+                                }
+                                case 10 -> {
+                                    System.out.println("Seguro que quiere salir? Si-0 - No-1");
+                                    salir = entrada.nextInt();
+                                }
+                                default -> System.out.println("No eligio ninguna opcion ");
+                            }
+                            System.out.println("");
+                        } while (salir == 1);
+
                         System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
                         opcion = entrada.nextInt();
                     } while (opcion == 0);
                 }
                 case 34 -> {
                     do {
+                        ListasEPrimeraParte lista = new ListasEPrimeraParte();
+                        lista.listaVacia();
+                        System.out.println("");
+                        lista.agregarNodo(1);
+                        lista.agregarNodo(2);
+                        lista.agregarNodo(3); 
+                        lista.agregarNodo(4);
+                        lista.agregarNodo(5);
+                        lista.Listar();
+
+                        System.out.print(" Tamaño: " + lista.size()); 
+                        System.out.println("");
+
+                        lista.listaVacia(); 
+
+                        System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
+                        opcion = entrada.nextInt();
+                    } while (opcion == 0);
+                }
+                case 35 -> {
+                    do {
+                        ListasESegundaParte lista = new ListasESegundaParte();
+                        lista.listaVacia();
+
+                        System.out.println("");
+                        lista.agregarNodo(1);
+                        lista.agregarNodo(3);
+                        lista.agregarNodo(4); 
+                        lista.agregarNodo(2);
+                        lista.agregarNodo(5);
+                        lista.Listar();
+
+                        System.out.print(" Tamaño: " + lista.size()); //lo muestra econ un print 
+                        System.out.println("");
+
+                        lista.listaVacia();
+
+                        System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
+                        opcion = entrada.nextInt();
+                    } while (opcion == 0);
+                }
+                case 36 -> {
+                    do {
+                        int posicion;
+                        ListasETerceraParte lista = new ListasETerceraParte();
+                        lista.listaVacia();
+
+                        System.out.println("");
+                        lista.agregarNodo(1);
+                        lista.agregarNodo(2);
+                        lista.agregarNodo(3);
+                        lista.agregarNodo(4);
+                        lista.agregarNodo(5);
+                        lista.Listar();
+
+                        System.out.print(" Tamaño: " + lista.size());
+                        System.out.println("");
                         
+                        System.out.println("Que quieres hacer");
+                        System.out.println("1. Borrar Primero");
+                        System.out.println("2. Borrar Ultimo");
+                        System.out.println("3. Borrar Posicion");
+                        opcion = entrada.nextInt();
+                        switch(opcion){
+                            case 1 -> {
+                                lista.BorrarPrimero();
+                            }
+                            case 2 -> {
+                                lista.BorrarUltimo();
+                            }
+                            case 3 -> {
+                                System.out.println("Que Posicion Quieres Borrar 1 - 5");
+                                posicion = entrada.nextInt();
+                                lista.BorrarPosicion(posicion);
+                            }
+                            default -> {
+                                System.out.println("Error");
+                            }
+                        }
+  
+                        lista.Listar();
+                        System.out.println("");
+                        System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
+                        opcion = entrada.nextInt();
+                    } while (opcion == 0);
+                }
+                case 37 -> {
+                    do {
+                        ListasECuartaParte lista = new ListasECuartaParte(); 
+                        lista.listaVacia(); 
+
+                        System.out.println("");
+                        lista.agregarNodo(1);
+                        lista.agregarNodo(2);
+                        lista.agregarNodo(3); 
+                        lista.agregarNodo(4);
+                        lista.agregarNodo(5);
+                        lista.Listar();
+                                 
+
+                        System.out.print(" Tamaño: " + lista.size());
+                        System.out.println("");
+
+                        if (lista.Buscar(1) == null) {
+                            System.out.println("la lista no tiene datos a buscar");
+                        } else {
+                            System.out.println("La lista si tiene el dato a buscar: ");
+                        }
+
+                        lista.Sustituir(5, 6);
+                        lista.Listar();
                         System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
                         opcion = entrada.nextInt();
                     } while (opcion == 0);
                 }
                 default -> {
-                    System.out.println("Error Seleccione Un Numero Valido");
+                    System.out.println("Adios");
                 }
             }
-        } while (opcion != 50);
+        } while (opcion != 38);
         entrada.close();
+    }
+    
+    //Constructores del programa de Cola
+    public Menu() {
+        elementos = new int[100];
+        frente = 0;
+        fin = -1;
+    }
+
+    public boolean colaVacia() {
+        return frente > fin;
+    }
+
+    public int desencolar() {
+        if (colaVacia()) {
+            throw new IllegalStateException("La cola está vacía");
+        }
+        int elemento = elementos[frente];
+        frente++;
+        return elemento;
+    }
+
+    public void encolar(int elem) {
+        if (fin == elementos.length - 1) {
+            throw new IllegalStateException("La cola está llena");
+        }
+        fin++;
+        elementos[fin] = elem;
     }
 }
