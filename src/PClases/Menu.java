@@ -1,6 +1,10 @@
 //Autor Equipo 6
 package PClases;
 
+import static PClases.MetodoRadix.imprimirArreglo;
+import static PClases.MetodoRadix.radixSort;
+import static PClases.Quicksort.imprimirArray;
+import static PClases.Quicksort.quickSort;
 import java.util.Scanner;
 
 public class Menu {
@@ -25,6 +29,10 @@ public class Menu {
         BusquedaSecuencial eBSecuencial = new BusquedaSecuencial();
         BusquedaBinaria eBBinaria = new BusquedaBinaria();
         MetodosOrdenamiento eMOrdenamiento = new MetodosOrdenamiento();
+        MetodoRadix eRadix = new MetodoRadix();
+        ShellSort eShellSort = new ShellSort();
+        MezclaDirecta iMezclaD = new MezclaDirecta();
+        Quicksort eQuicksort = new Quicksort();
 
         do {
             System.out.println("------------------------ MENU ------------------------");
@@ -60,13 +68,17 @@ public class Menu {
             System.out.println("29. Ejercicio Algoritmo Burbuja");
             System.out.println("30. Ejercicio Algoritmo Insercion");
             System.out.println("31. Ejercicio Exposicion Algoritmo Mezcla Directa");
-            System.out.println("32. Ejercicio Pila");
-            System.out.println("33. Ejercicio Cola");
-            System.out.println("34. Ejercicio Lista Enlazada Parte 1");
-            System.out.println("35. Ejercicio Lista Enlazada Parte 2");
-            System.out.println("36. Ejercicio Lista Enlazada Parte 3");
-            System.out.println("37. Ejercicio Lista Enlazada Parte 4");
-            System.out.println("38. Salir");
+            System.out.println("32. Ejercicio Exposicion Algoritmo Radix Sort");
+            System.out.println("33. Ejercicio Exposicion Algoritmo Shell Sort");
+            System.out.println("34. Ejercicio Exposicion Algoritmo Mezcla Natural");
+            System.out.println("35. Ejercicio Exposicion Algoritmo Quicksort");
+            System.out.println("36. Ejercicio Pila");
+            System.out.println("37. Ejercicio Cola");
+            System.out.println("38. Ejercicio Lista Enlazada Parte 1");
+            System.out.println("39. Ejercicio Lista Enlazada Parte 2");
+            System.out.println("40. Ejercicio Lista Enlazada Parte 3");
+            System.out.println("41. Ejercicio Lista Enlazada Parte 4");
+            System.out.println("42. Salir");
             System.out.println("Ingrese El Numero Para Escoger El Programa: ");
             opcion = entrada.nextInt();
 
@@ -328,6 +340,96 @@ public class Menu {
                 }
                 case 32 -> {
                     do {
+                        //Declaración de variables
+                        int[] arreglo = new int[]{78, 12, 53, 14, 01, 943, 50, 677, 33, 100}; //10 elementos en el arreglo
+                        eRadix.radixSort(arreglo);
+                        System.out.println("Elemtos organizados: ");
+                        eRadix.imprimirArreglo(arreglo);
+                        System.out.println("");
+                        System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
+                        opcion = entrada.nextInt();
+                    } while (opcion == 0);
+                }
+                case 33 -> {
+                    do {
+                        //Aqui pedimos el tamaño de la matriz
+                        System.out.print("Ingrese el tamaño de la matriz: ");
+                        int n = entrada.nextInt();
+                        //aqui asignamos el tamaño que ingreso el usuario a el arreglo llamado numeros
+                        int numeros[] = new int[n];
+                        //Se procede a ingresar los numeros del arreglo
+                        System.out.println("Ingrese los elementos de la matriz: ");
+                        for (int i = 0; i < n; i++) {
+                            numeros[i] = entrada.nextInt();
+                        }
+                        //aqui se manda a llamar el metodo donde esta ordenando la matriz
+                        eShellSort.shellSort(numeros);
+                        //se imprime la matriz ordenada
+                        System.out.println("Matriz ordenada:");
+                        eShellSort.imprimir(numeros);
+                        System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
+                        opcion = entrada.nextInt();
+                    } while (opcion == 0);
+                }
+                case 34 -> {
+                    do {
+                        System.out.println("Indica el numero de elementos del arreglo");
+
+                        int n = entrada.nextInt();
+
+                        int a[] = new int[n];
+                        n = a.length;
+
+                        System.out.println("Introduce los numeros para tu arreglo");
+                        for (int b = 0; b < n; b++) {
+                            a[b] = entrada.nextInt();
+                        }
+
+                        System.out.println("");
+                        System.out.print("Vector sin ordenar: ");
+
+                        for (int i = 0; i < a.length; i++) {
+                            System.out.print(a[i] + " ");
+                        }
+
+                        iMezclaD.mezclar(0, a.length - 1, a);
+
+                        System.out.println("");
+                        System.out.print("Vector ordenado: ");
+
+                        for (int i = 0; i < a.length; i++) {
+                            System.out.print(a[i] + " ");
+                        }
+                        System.out.println("");
+                        System.out.println("");
+                        System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
+                        opcion = entrada.nextInt();
+                    } while (opcion == 0);
+                }
+                case 35 -> {
+                    do {
+                        int array[];
+                        int tamaio = 8, i;
+                        array = new int[tamaio];
+                        array[0] = 11;
+                        array[1] = 5;
+                        array[2] = 2;
+                        array[3] = 6;
+                        array[4] = 10;
+                        array[5] = 12;
+                        array[6] = 8;
+                        array[7] = 7;
+                        System.out.println("Array original:");
+                        eQuicksort.imprimirArray(array);
+                        eQuicksort.quickSort(array, 0, tamaio - 1);
+                        System.out.println("Array ordenado:");
+                        eQuicksort.imprimirArray(array);
+                        System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
+                        opcion = entrada.nextInt();
+                    } while (opcion == 0);
+                }
+                case 36 -> {
+                    do {
                         Pila inicializar = new Pila();
                         Pila ingresar = new Pila();
                         Pila leerYquitarCima = new Pila();
@@ -464,7 +566,7 @@ public class Menu {
                         opcion = entrada.nextInt();
                     } while (opcion == 0);
                 }
-                case 33 -> {
+                case 37 -> {
                     do {
                         Menu cola = new Menu();
                         Cola inicializar = new Cola();
@@ -555,7 +657,7 @@ public class Menu {
                         opcion = entrada.nextInt();
                     } while (opcion == 0);
                 }
-                case 34 -> {
+                case 38 -> {
                     do {
                         ListasEPrimeraParte lista = new ListasEPrimeraParte();
                         lista.listaVacia();
@@ -576,7 +678,7 @@ public class Menu {
                         opcion = entrada.nextInt();
                     } while (opcion == 0);
                 }
-                case 35 -> {
+                case 39 -> {
                     do {
                         ListasESegundaParte lista = new ListasESegundaParte();
                         lista.listaVacia();
@@ -598,7 +700,7 @@ public class Menu {
                         opcion = entrada.nextInt();
                     } while (opcion == 0);
                 }
-                case 36 -> {
+                case 40 -> {
                     do {
                         int posicion;
                         ListasETerceraParte lista = new ListasETerceraParte();
@@ -643,7 +745,7 @@ public class Menu {
                         opcion = entrada.nextInt();
                     } while (opcion == 0);
                 }
-                case 37 -> {
+                case 41 -> {
                     do {
                         ListasECuartaParte lista = new ListasECuartaParte(); 
                         lista.listaVacia(); 
@@ -673,10 +775,10 @@ public class Menu {
                     } while (opcion == 0);
                 }
                 default -> {
-                    System.out.println("Adios");
+                    System.out.println("Sobres te lo lavas");
                 }
             }
-        } while (opcion != 38);
+        } while (opcion != 42);
         entrada.close();
     }
     
