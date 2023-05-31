@@ -29,6 +29,7 @@ public class Menu {
         ShellSort eShellSort = new ShellSort();
         MezclaDirecta iMezclaD = new MezclaDirecta();
         Quicksort eQuicksort = new Quicksort();
+        GrafoMatrizAdyacencia eGrafo2 = new GrafoMatrizAdyacencia(5, 10);
 
         do {
             System.out.println("------------------------ MENU ------------------------");
@@ -74,7 +75,8 @@ public class Menu {
             System.out.println("39. Ejercicio Lista Enlazada Parte 2");
             System.out.println("40. Ejercicio Lista Enlazada Parte 3");
             System.out.println("41. Ejercicio Lista Enlazada Parte 4");
-            System.out.println("42. Salir");
+            System.out.println("42. Grafos 2");
+            System.out.println("43. Salir");
             System.out.println("Ingrese El Numero Para Escoger El Programa: ");
             opcion = entrada.nextInt();
 
@@ -770,11 +772,29 @@ public class Menu {
                         opcion = entrada.nextInt();
                     } while (opcion == 0);
                 }
+                case 42 -> {
+                    do {
+                        eGrafo2.insertaArista(0, 1, 10);
+                        eGrafo2.insertaArista(0, 2, 15);
+                        eGrafo2.insertaArista(1, 2, 20);
+                        eGrafo2.impMatrix();
+                        boolean existeArista = eGrafo2.existeArista(0, 1);
+                        System.out.println("¿Existe arista entre 0 y 1? " + existeArista);
+                        int primerAdyacente = eGrafo2.primeroListaAdy(0);
+                        System.out.println("Primer adyacente a 0: " + primerAdyacente);
+                        int siguienteAdyacente = eGrafo2.proxAdy(0, primerAdyacente);
+                        System.out.println("Siguiente adyacente a 0 después de " + primerAdyacente + ": " + siguienteAdyacente);
+                        eGrafo2.eliminaArista(0, 1);
+                        eGrafo2.impMatrix();
+                        System.out.println("Quieres Salir = 1 / Repetir Programa = 0");
+                        opcion = entrada.nextInt();
+                    } while (opcion == 0);
+                }
                 default -> {
                     System.out.println("Hasta luego");
                 }
             }
-        } while (opcion != 42);
+        } while (opcion != 43);
         entrada.close();
     }
     
