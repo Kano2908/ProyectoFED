@@ -1,10 +1,6 @@
 //Autor Equipo 6
 package PClases;
 
-import static PClases.MetodoRadix.imprimirArreglo;
-import static PClases.MetodoRadix.radixSort;
-import static PClases.Quicksort.imprimirArray;
-import static PClases.Quicksort.quickSort;
 import java.util.Scanner;
 
 public class Menu {
@@ -775,7 +771,7 @@ public class Menu {
                     } while (opcion == 0);
                 }
                 default -> {
-                    System.out.println("Sobres te lo lavas");
+                    System.out.println("Hasta luego");
                 }
             }
         } while (opcion != 42);
